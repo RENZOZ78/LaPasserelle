@@ -1,0 +1,83 @@
+.header{
+    height: 450px;
+    width: 100%;
+
+    position: relative;
+}
+
+.header_texture{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    background: url("../img/carrefour.jpg") center no-repeat;
+    background-size: cover;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.header_mask{
+    position: absolute;
+    bottom: 0;
+    background: 0 0;
+    height: 42px;
+    width: 100%;
+    z-index: 10;
+}
+
+.header_navbar{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header_navbar--logo {
+    color:#fff;
+    font-size: 26px;
+}
+
+
+.header_navbar--menu{
+
+}
+
+.header_navbar--menu-link{
+    margin-left: 40px;
+    color:  #fff;
+    text-decoration: none;
+}
+
+.header_navbar--menu-link i{
+    margin-left: 2px;
+}
+
+.header_slogan{
+    text-align: center;
+
+}
+
+.header_slogan--title{
+    color: #ffffff;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: 'anton';
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-top: 60px;
+}
+
+.header_slogan--btn{
+    color: white;
+    text-decoration: none ;
+    background-color: #e67e22;
+    border-radius: 20px;
+    padding: 15px 20px;
+
+
+
+
+}
