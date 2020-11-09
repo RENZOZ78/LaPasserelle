@@ -27,6 +27,7 @@
     overflow: hidden;
     padding: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .article_filter{

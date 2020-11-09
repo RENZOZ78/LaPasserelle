@@ -1,0 +1,39 @@
+.header  .header_article {
+    height: 400px;
+
+}
+
+.header_article .header_texture{
+
+    background: url("../img/img1.jpg") center no-repeat;
+    background-size: cover;/*image de fond en entier*/
+    opacity: 0.6;
+}
+
+.article_view-container{
+    width: 60%  ;
+    margin:  auto    ;
+    padding-top: 20px   ;
+}
+.article_view-title{
+    border-bottom: 3px  solid   #e67e22; /*ligne en dessous du texte*/
+    line-height: 30px; /*espace entre les lignes*/
+    font-weight: 700;
+    margin: 0;
+}
+.article_view-subtitle{
+    font-style: italic;
+    font-weight: 400;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 15px;
+
+}
+.article_view-content{
+    padding-top: 10px;
+    font-weight: 300;
+    text-align: justify; /*aligne les texte du paragraphe a gauche et a droire*/
+    padding-bottom: 30px     ;
+    font-size: 17px;
+    line-height: 25px;
+}
