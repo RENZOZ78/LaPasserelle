@@ -2,16 +2,16 @@
 
 .footer{
     display: block;
-
+    bottom: 0;
     /*justify-content: center;*/
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    padding-top: 50px;
     padding-bottom: 20px;
     /*position: fixed;*/
     position:   absolute;
     width: 100%;
-    bottom: 0;
+
     height: 200px;
 }
 
@@ -36,3 +36,4 @@
     width: 100%;
     z-index: 10;
 }
+

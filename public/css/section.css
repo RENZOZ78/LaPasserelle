@@ -1,12 +1,11 @@
 .section{
 
-    height: 600px;
+    height: auto;
     position: relative   ;
     width: 100%;
     padding-bottom: 20px;
     min-height: 600px;
-
-    /*margin-bottom: 100px;*/
+    margin-bottom: 200px;
 
 }
 
