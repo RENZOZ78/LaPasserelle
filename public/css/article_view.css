@@ -1,6 +1,10 @@
 .header  .header_article {
-    height: 400px;
+    height: 350px;
 
+}
+
+.header_otherpage .header_slogan{
+    margin-top: 10px;
 }
 
 .header_article .header_texture{
