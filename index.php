@@ -32,9 +32,13 @@
             include('inc/section.php')
             ?>
 
+
+
+
             <?php
                 include('inc/footer.php');
             ?>
+
 
         </div>
 

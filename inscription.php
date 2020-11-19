@@ -1,3 +1,7 @@
+<?php session_start(); ?>
+
+
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -41,33 +45,109 @@
 
 <div class="container">
     <div class="form">
+
         <div class="form_title">Inscription</div>
-        <form class="form_inner" action="">
+
+        <form class="form_inner" action="" method="post">
+
             <div class="form_line">
                 <div class="form_block">
                     <h4 class="form_label">Nom</h4>
-                    <input class="form_input"  type="text">
+                    <input class="form_input"
+                           type="text"
+                           name="pseudo"
+                           id="pseudo"
+                            placeholder= "ex: Nemo"
+                           required>
                 </div>
+
                 <div class="form_block">
                     <h4 class="form_label">Email</h4>
-                    <input class="form_input"  type="email">
+                    <input class="form_input"
+                           type="email"
+                           name="email"
+                           id="email"
+                           placeholder="ex: passerelle@gmail.com"
+                           required>
                 </div>
             </div>
+
             <div class="form_line">
                 <div class="form_block">
                     <h4 class="form_label">Mot de passe</h4>
-                    <input class="form_input"  type="text">
+                    <input class="form_input"
+                           type="password"
+                           name="password"
+                           id="password"
+                           placeholder="Votre mot de passe">
+
+
                 </div>
+
                 <div class="form_block">
                     <h4 class="form_label">Confirmation du mot de passe</h4>
-                    <input class="form_input"  type="text">
+                    <input class="form_input"
+                           type="password"
+                           name="cpassword"
+                           id="cpassword"
+                           placeholder="Confirmer votre mot de passe"
+                           required>
                 </div>
             </div>
-            <button class="btn">S'inscrire</button>
+            <button class="btn" type="submit" name="formsend" id="formsend"  >S'inscrire</button>
         </form>
+
     </div>
 </div>
 
+
+<?php
+if(isset($_POST['formsend'])){
+    extract($_POST);
+
+    //CONDITIONS CASE NON VIDES
+    if(!empty($password) && !empty($cpassword) && !empty($email) && !empty($pseudo)) {
+
+        if($password == $cpassword){
+            $options = [
+            'cost' => 12,
+        ];
+//                        echo password_hash($password, PASSWORD_BCRYPT, $options) . "\n";
+            //HASH POT DE PASS
+            $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
+
+        include ('inc/database.php');
+        global $db;
+
+        $c = $db->prepare("SELECT email FROM users WHERE email = :email");
+        $c->execute(['email' => $email]);
+        $result = $c->rowCount();
+
+        //REQUETE PREPARER INSRERTION DONNEE BDD
+        echo $result; //petit debug, pour bien aficher le message
+
+        if($result == 0) {
+            $q = $db->prepare("INSERT INTO users(pseudo,email,password) VALUES(:pseudo,:email,:password)");
+            $q->execute([
+                'pseudo' => $pseudo,
+                'email' => $email,
+                'password' => $hashpass
+            ]);
+            echo "le compte a été crée";
+        }else {
+            echo "un email existe déja";
+        }
+
+
+//        if(password_verify($password, $hashpass)){
+//            echo "le mot de passe est le meme";
+//        } else{
+//            echo "le mot de passe n'est pas correct";
+        } else {
+            echo "Les champs ne sont pas tous remplis";
+        }
+    }}
+?>
 
 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

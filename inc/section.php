@@ -63,6 +63,30 @@
                     <div class="article_icon"><i class="fa fa-play"></i></div>
                 </a>
 
+                <?php
+                include('database.php');
+                global $db;
+
+                //REQUETE NORMALE
+                /*$q = $db->query("SELECT * FROM USERS ORDER BY id DESC LIMIT 3");
+                while ($user = $q->fetch()) {
+                    var_dump($user);*/
+
+                //REQUETE PREPAREE envoie de donnéés /Rq: l'ID  & DATE se mettent auto
+                $q = $db->prepare("INSERT INTO users(pseudo, email, password) VALUES(:pseudo,:email,:password)");
+                $q->execute([
+                    'pseudo' =>  'fabriceffrrafra',
+                    'email' => 'ferfe@gmail.com',
+                    'password' => 'popofrfrrfr',
+                ]);
+                if(isset($_POST['formsend'])){
+
+                    $pseudo = $_POST['pseudo'];
+                    $age = $_POST['age'];
+                    $email = $_POST['email'];
+                }
+                ?>
+
 
 
             </div>
