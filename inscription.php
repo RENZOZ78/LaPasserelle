@@ -1,6 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();
 
+    $_SESSION['pseudo'] = "didier";
+    $_SESSION['email'] = "didier@gmail.com";
 
+    session_unset();
+    session_destroy();
+?>
 
 <!doctype html>
 <html lang="fr">
@@ -16,11 +21,14 @@
     <link rel="stylesheet" href="public/css/header.css">
     <link rel="stylesheet" href="public/css/articles.css">
     <link rel="stylesheet" href="public/css/form.css">
+    <link rel="stylesheet" href="public/css/footer.css">
+    <link rel="stylesheet" href="public/css/inscription.css">
     <link href="public/img/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
-    <title>La Passerelle | Inscription</title>
+    <title>Inscription</title>
 </head>
 
 <body>
+<div id="main">
 <div class="header header_home-otherpage">
     <div class="header_texture"></div>
     <div class="header_mask">
@@ -43,111 +51,93 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="form">
 
-        <div class="form_title">Inscription</div>
+    <div class="container">
+        <div class="form_inscription">
 
-        <form class="form_inner" action="" method="post">
+            <div class="form_title">Inscription</div>
 
-            <div class="form_line">
-                <div class="form_block">
-                    <h4 class="form_label">Nom</h4>
-                    <input class="form_input"
-                           type="text"
-                           name="pseudo"
-                           id="pseudo"
-                            placeholder= "ex: Nemo"
-                           required>
+            <form class="form_inner" action="" method="post">
+
+                <div class="form_line">
+
+                    <div class="form_block">
+                        <h4 class="form_label">Nom</h4>
+                        <input class="form_input"
+                               type="text"
+                               name="pseudo"
+                               id="pseudo"
+                                placeholder= "ex: Nemo"
+                               required>
+                    </div>
+
+                    <div class="form_block">
+                        <h4 class="form_label">Email</h4>
+                        <input class="form_input"
+                               type="email"
+                               name="email"
+                               id="email"
+                               placeholder="ex: passerelle@gmail.com"
+                               required>
+                    </div>
                 </div>
 
-                <div class="form_block">
-                    <h4 class="form_label">Email</h4>
-                    <input class="form_input"
-                           type="email"
-                           name="email"
-                           id="email"
-                           placeholder="ex: passerelle@gmail.com"
-                           required>
+                <div class="form_line">
+                    <div class="form_block">
+                        <h4 class="form_label">Mot de passe</h4>
+                        <input class="form_input"
+                               type="password"
+                               name="password"
+                               id="password"
+                               placeholder="Votre mot de passe"
+                                required>
+                    </div>
+
+                    <div class="form_block">
+                        <h4 class="form_label">Confirmation du mot de passe</h4>
+                        <input class="form_input"
+                               type="password"
+                               name="cpassword"
+                               id="cpassword"
+                               placeholder="Confirmer votre mot de passe"
+                               required>
+                    </div>
                 </div>
-            </div>
+                <button class="btn" type="submit" name="formsend" id="formsend"  >S'inscrire</button>
+            </form>
 
-            <div class="form_line">
-                <div class="form_block">
-                    <h4 class="form_label">Mot de passe</h4>
-                    <input class="form_input"
-                           type="password"
-                           name="password"
-                           id="password"
-                           placeholder="Votre mot de passe">
+            <?php
+                include "inc\signin.php";
+            ?>
 
-
-                </div>
-
-                <div class="form_block">
-                    <h4 class="form_label">Confirmation du mot de passe</h4>
-                    <input class="form_input"
-                           type="password"
-                           name="cpassword"
-                           id="cpassword"
-                           placeholder="Confirmer votre mot de passe"
-                           required>
-                </div>
-            </div>
-            <button class="btn" type="submit" name="formsend" id="formsend"  >S'inscrire</button>
-        </form>
-
+        </div>
+    </div>
+    <div>
+        <?php
+            include "inc/footer.php";
+        ?>
     </div>
 </div>
 
 
 <?php
-if(isset($_POST['formsend'])){
-    extract($_POST);
-
-    //CONDITIONS CASE NON VIDES
-    if(!empty($password) && !empty($cpassword) && !empty($email) && !empty($pseudo)) {
-
-        if($password == $cpassword){
-            $options = [
-            'cost' => 12,
-        ];
-//                        echo password_hash($password, PASSWORD_BCRYPT, $options) . "\n";
-            //HASH POT DE PASS
-            $hashpass = password_hash($password, PASSWORD_BCRYPT, $options);
-
-        include ('inc/database.php');
-        global $db;
-
-        $c = $db->prepare("SELECT email FROM users WHERE email = :email");
-        $c->execute(['email' => $email]);
-        $result = $c->rowCount();
-
-        //REQUETE PREPARER INSRERTION DONNEE BDD
-        echo $result; //petit debug, pour bien aficher le message
-
-        if($result == 0) {
-            $q = $db->prepare("INSERT INTO users(pseudo,email,password) VALUES(:pseudo,:email,:password)");
-            $q->execute([
-                'pseudo' => $pseudo,
-                'email' => $email,
-                'password' => $hashpass
-            ]);
-            echo "le compte a été crée";
-        }else {
-            echo "un email existe déja";
-        }
-
-
-//        if(password_verify($password, $hashpass)){
-//            echo "le mot de passe est le meme";
-//        } else{
-//            echo "le mot de passe n'est pas correct";
-        } else {
-            echo "Les champs ne sont pas tous remplis";
-        }
-    }}
+    include "inc\signin.php";
 ?>
+
+    //$_SESSION
+
+        <?php
+        echo "bienvenue sur votre profil";
+       if(isset($_SESSION['pseudo']) && (isset($_SESSION['email'])))
+        {
+            ?>
+                <p>votre pseudo :<?= $_SESSION['pseudo'];  ?> </p>
+                <p>Votre email : <?=$_SESSION['email']; ?> </p>
+            <?php
+        }else{
+            echo "veuillez vous connectez à votre compte";
+        }
+    ?>
 
 
 <script src="http://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>

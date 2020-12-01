@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="public/css/base.css">
     <link rel="stylesheet" href="public/css/header.css">
-
+    <link rel="stylesheet" href="public/css/footer.css">
     <link rel="stylesheet" href="public/css/article_view.css">
 
     <link href="public/img/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">

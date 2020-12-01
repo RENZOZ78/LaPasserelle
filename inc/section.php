@@ -1,10 +1,11 @@
 <div class="section">
-    <div class="articles">
-        <div class="container">
+
+    <div class="container">
+        <div class="section_texture"></div>
+        <div class="articles">
+
             <h2 class="articles_title">Articles</h2>
             <div class="articles_items">
-
-
 
                 <a href="http://localhost:63342/PROJET%20PERSO/LaPasserelle/article1.php?_ijt=i858qhni7c3sf8ou8i4cf2ir6l"
                        class="article"
@@ -72,8 +73,9 @@
                 while ($user = $q->fetch()) {
                     var_dump($user);*/
 
-                //REQUETE PREPAREE envoie de donnéés /Rq: l'ID  & DATE se mettent auto
+                //1-REQUETE PREPAREE envoie de donnéés /Rq: l'ID  & DATE se mettent auto
                 $q = $db->prepare("INSERT INTO users(pseudo, email, password) VALUES(:pseudo,:email,:password)");
+                //2-EXECUTE AFFICHAGE
                 $q->execute([
                     'pseudo' =>  'fabriceffrrafra',
                     'email' => 'ferfe@gmail.com',
@@ -86,10 +88,8 @@
                     $email = $_POST['email'];
                 }
                 ?>
-
-
-
             </div>
-        </div>
+
     </div>
-</div>
+    </div>
+</div class="section">

@@ -1,6 +1,9 @@
-* {
+* ::before,::after {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 
 body, html{
     height: 100%;
@@ -12,7 +15,7 @@ body, html{
       max-width: 100%;
       min-height: 100%;
       margin: 0 auto ;
-      display: flex;
+      display: block;
     flex-direction: column;
       position: relative;
   }
@@ -21,6 +24,8 @@ body, html{
     margin: auto;
     position: relative;
     z-index: 999;
+    display: block;
+    /*height: auto;*/
 
 }
 .btn{

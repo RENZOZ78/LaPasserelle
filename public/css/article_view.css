@@ -9,7 +9,7 @@
 
 .header_article .header_texture{
 
-    background: url("../img/img1.jpg") center no-repeat;
+    background: url("../img/mag_costumes.jpg") center no-repeat;
     background-size: cover;/*image de fond en entier*/
     opacity: 0.6;
 }
@@ -37,7 +37,8 @@
     padding-top: 10px;
     font-weight: 300;
     text-align: justify; /*aligne les texte du paragraphe a gauche et a droire*/
-    padding-bottom: 30px     ;
+    padding-bottom: 30px;
     font-size: 17px;
     line-height: 25px;
+    padding-bottom: 10px;
 }

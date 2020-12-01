@@ -1,11 +1,27 @@
 .section{
 
-    height: auto;
-    position: relative   ;
+    /*height: auto;
+   position: relative   ;
     width: 100%;
     padding-bottom: 20px;
     min-height: 600px;
-    margin-bottom: 200px;
+    margin-bottom: 200px;*/
+    flex: 1 0 auto;
+    /*background: white;*/
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    z-index: 20;
 
 }
+.section_texture{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    /*background: url("../img/vie_facile.png") center no-repeat;
+    background-size: cover;*/
+    z-index: -1;
+    opacity: 0.2;
+}
+
 
