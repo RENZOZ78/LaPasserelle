@@ -1,2 +1,2 @@
 # LaPasserelle
-site internet qui repertorie tous les commerces de la ville (articles et informations des commerces)
+site internet qui repertorie tous les commerces votre ville (informations, localisation des commerces)
