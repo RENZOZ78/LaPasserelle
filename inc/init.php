@@ -1,1 +1,2 @@
-$bdd = new PDO('mysql:host=localhost;dbname=LaPasserelle', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+<?php
+$bdd = new PDO('mysql:host=localhost;dbname=LaPasserelle', 'Zigma', 'Zigmazigma78??', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));

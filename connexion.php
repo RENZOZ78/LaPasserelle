@@ -1,5 +1,25 @@
 <?php session_start();
+//ajouter un cookie
+    setcookie('pseudo','didier',time() + (30*24*3600)); //cookie de 1mois
+    //setcookie('id',18,time() + 60);
+//    var_dump($_COOKIE);
 
+//verification existance d'un cookie
+    if(isset($_cookie['pseudo']))
+    {
+        echo "l'element existe bien" . $_COOKIE['pseudo'];
+    }else{
+        echo "l'element n'existe pas";
+    }
+        //echo "id: " . $_COOKIE['id'];
+
+
+//supprimer un cookie
+    //setcookie('pseudo','',time());
+    //var_dump($_COOKIE);*
+
+//cookie specifique
+   // echo "id: " . $_COOKIE['id'];
 
 ?>
 
@@ -27,7 +47,7 @@
     <div class="header header_home-otherpage">
         <div class="header_texture"></div>
         <div class="header_mask">
-            <svg width="100%" height="100% view"viewBox="0 0 100 100" preserveAspectRatio="none">
+            <svg width="100%" height="100% "viewBox="0 0 100 100" preserveAspectRatio="none">
                 <path d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
             </svg>
         </div>
@@ -103,9 +123,12 @@
     </div>
 </div>
 
-//$_SESSION //savoir s'il est bien connecté sur le compte car les é variables de session existe
+
 
         <?php
+
+        /*$_SESSION //savoir s'il est bien connecté sur le compte car les é variables de session existe*/
+
         echo "bienvenue sur votre profil";
        if(isset($_SESSION['pseudo']) && (isset($_SESSION['email']) && (isset($_SESSION['date'] ))))
         {

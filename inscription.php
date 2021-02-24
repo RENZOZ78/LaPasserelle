@@ -32,7 +32,7 @@
 <div class="header header_home-otherpage">
     <div class="header_texture"></div>
     <div class="header_mask">
-        <svg width="100%" height="100% view"viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg width="100%" height="100% "viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
         </svg>
     </div>
@@ -121,21 +121,25 @@
 
 
 <?php
-    include "inc\signin.php";
-?>
+//    include "inc\signin.php";
+//?>
 
-    //$_SESSION
+
 
         <?php
-        echo "bienvenue sur votre profil";
+
+        // $_SESSION
+
+        echo " bienvenue sur votre profil ";
        if(isset($_SESSION['pseudo']) && (isset($_SESSION['email'])))
         {
             ?>
                 <p>votre pseudo :<?= $_SESSION['pseudo'];  ?> </p>
-                <p>Votre email : <?=$_SESSION['email']; ?> </p>
+                <p>Votre email : <?= $_SESSION['email']; ?> </p>
             <?php
+
         }else{
-            echo "veuillez vous connectez à votre compte";
+            echo " veuillez vous connectez à votre compte ";
         }
     ?>
 

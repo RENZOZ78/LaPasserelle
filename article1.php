@@ -24,7 +24,7 @@
             <div class="header_texture"></div>
 
             <div class="header_mask">
-                <svg width="100%" height="100% view"viewBox="0 0 100 100" preserveAspectRatio="none">
+                <svg width="100%" height="100% "viewBox="0 0 100 100" preserveAspectRatio="none">
                     <path d="M0 100 L 0 0 C 25 100 75 100 100 0 L 100 100" fill="#fff"></path>
                 </svg>
             </div>
@@ -59,7 +59,6 @@
         <?php
         include('inc/footer.php');
         ?>
-
     </div>
 
 

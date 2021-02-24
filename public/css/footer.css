@@ -1,11 +1,11 @@
 
-
 footer{
     display: block  ;
     /*flex-shrink: 0;*/
     /*border-top: 1px dashed #000000;
     border-top-left-radius:50px ;
     border-top-right-radius: 50px;*/
+    font-size: 5px;
 
     width: 100%;
     padding: 30px 0 30px;
@@ -30,8 +30,11 @@ footer{
  }
 .footer_texture{
     width: 100%;
-   height: 350px;
+   height: 100%;
     position: absolute;
+    top: 0;
+    left: 0; right: 0;
+    bottom: 0;
      /*bottom: 0; left: 0;*/
     background: url("../img/mag_chaussures.jpg") center no-repeat;
     background-size: cover ;
@@ -92,7 +95,7 @@ img{
     transition: all 1s;
 }
 .footer_contact p img{
-    margin-right: 7px;
+    margin-right: 5px;
 }
 
 /*horaires*/
@@ -127,7 +130,10 @@ img{
 }
 
 /*media queries*/
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1100px) {
+    footer{
+        height: 100%;
+    }
     .container_footer    {
         width: 700px;
         flex-wrap: wrap;
@@ -137,8 +143,9 @@ img{
         margin: 0 0;
     }
     .footer_texture{
-        width: 100%;
-        height: 643px;
+        /*width: 100%;*/
+        height: 100%;
+        bottom: 0;
 
     }
     .bloc:nth-child(1),
@@ -147,24 +154,72 @@ img{
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 737px) {
+
+    /*.footer{*/
+    /*    left: 50px;*/
+    /*    right: 0;*/
+    /*    height: 1450px;*/
+    /*}*/
+
     .container_footer{
-        width: 320px;
-        margin: 30px 30px;
+        /*width: 320px;*/
+        width: 450px;
+        /*margin: 30px 30px;*/
+        margin: 20px auto;
+        /*display: block;*/
+        /*!*text-align: left;*!*/
+        /*justify-content: center;*/
+        /*text-align: center;*/
+
+
     }
     .bloc{
         width: 300px;
         margin: 30px 30px;
+        /*justify-content: center;*/
+        text-align: justify;
+        /*align-items: center;*/
     }
+
+    h3 {
+        margin: 0 auto;
+        text-decoration: underline black;
+    }
+    .liste_services li ,
+    .liste_horaires li,
+    .liste_medias a,
+    .liste_medias img{
+         justify-content: flex-start;
+    /*    text-align: center;*/
+    /*    align-items: center;*/
+    /*}*/
+    }
+
+    .footer_services a {
+        justify-content: flex-start;
+    }
+
+    .footer_contact p{
+        /*text-align: center;*/
+
+    }
+
+    .footer_horaires ul li{
+        justify-content: flex-start;
+    }
+
     .footer_texture{
         width: 100%;
-        height: 1413px;
+        height: 100%;
+        /*background-color: blue;
+        background-image: none;*/
     }
     .bloc:nth-child(1),
     .bloc:nth-child(2){
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
-    .bloc:nth-child(1){
-        margin-top: 0;
-    }
+    /*.bloc:nth-child(1){*/
+    /*    margin-top: 0;*/
+    /*}*/
 }

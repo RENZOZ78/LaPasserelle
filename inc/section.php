@@ -75,12 +75,14 @@
 
                 //1-REQUETE PREPAREE envoie de donnéés /Rq: l'ID  & DATE se mettent auto
                 $q = $db->prepare("INSERT INTO users(pseudo, email, password) VALUES(:pseudo,:email,:password)");
+
                 //2-EXECUTE AFFICHAGE
                 $q->execute([
                     'pseudo' =>  'fabriceffrrafra',
                     'email' => 'ferfe@gmail.com',
                     'password' => 'popofrfrrfr',
                 ]);
+
                 if(isset($_POST['formsend'])){
 
                     $pseudo = $_POST['pseudo'];
